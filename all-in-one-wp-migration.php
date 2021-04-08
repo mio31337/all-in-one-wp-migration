@@ -78,7 +78,7 @@ $main_controller = new Ai1wm_Main_Controller();
 
 // Function which remove Plugin Update Notices
 function disable_plugin_updates( $value ) {
-    unset( $value->response['all-in-one-wp-migration/all-in-one-wp-migration.php'] );
+    unset( $value->response[basename(dirname(__FILE__)) . '/all-in-one-wp-migration.php'] );
     return $value;
 }
 add_filter( 'site_transient_update_plugins', 'disable_plugin_updates' );
